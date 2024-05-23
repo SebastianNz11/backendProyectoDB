@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { pool } from "../db.js";
 
-const jwtSecret = 'your_jwt_secret';
+const jwtSecret = 'clave';
 
 const register = async (req, res) => {
   const { nombre, contrasenia, rol } = req.body;
