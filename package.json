@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "blob-stream": "^0.1.3",
+    "concat-stream": "^2.0.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "docx": "^8.5.0",
+    "docxtemplater": "^3.47.2",
+    "express": "^4.18.3",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "pdfkit": "^0.15.0",
+    "pg": "^8.11.3"
+  },
+  "name": "backend-centro-medico",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
