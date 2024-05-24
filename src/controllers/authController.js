@@ -1,6 +1,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { pool } from "../db.js";
+import { generateJWT } from '../helpers/generar-jwt.js';
 
 const jwtSecret = 'clave';
 
@@ -34,9 +35,9 @@ const login = async (req, res) => {
     if (!validPassword) {
       return res.status(400).json({ message: 'Nombre de usuario o contraseña incorrectos' });
     }
-
-    const token = jwt.sign({ id_usuario: user.rows[0].id_usuario, rol: user.rows[0].rol }, jwtSecret);
-    res.cookie('token', token, { httpOnly: true }).json({ token });
+    const token = await generateJWT({ id_usuario: user.rows[0].id_usuario, rol: user.rows[0].rol });
+    //const token = jwt.sign({ id_usuario: user.rows[0].id_usuario, rol: user.rows[0].rol }, jwtSecret);
+    res.cookie('token', token, { httpOnly: true }).json({ token, rol : user.rows[0].rol });
   } catch (error) {
     res.status(500).json({ message: 'Error al iniciar sesión', error: error.message });
   }

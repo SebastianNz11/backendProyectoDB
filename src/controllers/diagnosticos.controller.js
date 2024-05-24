@@ -9,6 +9,7 @@ export const obtenerDiagnosticos = async (req, res) => {
     res
       .status(404)
       .json({ message: "Error al obtener información de diagnósticos" });
+      console.log(error)
   }
 };
 

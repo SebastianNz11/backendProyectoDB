@@ -6,11 +6,12 @@ import {
   updateUsuario,
   deleteUser,
 } from "../controllers/registro.controller.js";
+import validateJWT from "../middlewares/validar-jwt.js";
 
 const registroRoutes = Router();
 
 registroRoutes.post("/registro", postUser);
-registroRoutes.get("/registro", getUsuarios);
+registroRoutes.get("/registro", [validateJWT], getUsuarios);
 registroRoutes.get("/registro/:id", getUsuarioId);
 registroRoutes.patch("/registro/:id", updateUsuario);
 registroRoutes.delete("/registro/:id", deleteUser);
